@@ -1,0 +1,30 @@
+<p-toast key="errorToast" position="top-center" [baseZIndex]="9999" (onClose)="close()">
+    <ng-template pTemplate="message" let-message>
+        <div class="toast-card w-full max-w-20rem">
+            <div class="toast-header flex align-items-start justify-content-between gap-3">
+                <i class="pi pi-times-circle text-red-500 text-xl mt-1"></i>
+                <div class="header-text flex-1">
+                    <div class="title font-semibold text-lg">
+                        {{ message.data.header }} ({{ message.data.code }})
+                    </div>
+                    <div class="summary text-sm text-600 mt-2">
+                        {{ message.data.summary }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="resolution" [class.expanded]="message.data.expanded">
+                <div class="steps text-sm ml-3 text-700" [innerHTML]="message.data.resolutionSteps"></div>
+            </div>
+
+            <div class="show-more mt-2 text-right">
+                <p-button [icon]="message.data.expanded ? 'pi pi-angle-up' : 'pi pi-angle-down'"
+                    [label]="message.data.expanded ? 'Show less' : 'Show more'" [text]="true" severity="danger"
+                    (click)="toggle(message)">
+                </p-button>
+            </div>
+        </div>
+    </ng-template>
+</p-toast>
+
+<button pButton label="Show Demo Error" class="mt-4" (click)="showError()" severity="contrast"></button>
