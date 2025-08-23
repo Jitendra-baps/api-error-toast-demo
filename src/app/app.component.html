@@ -1,1 +1,5 @@
+<button pButton label="Show Dialog Error" class="mt-4" (click)="errorDialogService.showError(405)" severity="contrast"></button>
+<button pButton label="Show Toast Error" class="mt-4 ml-4" (click)="errorToastService.showError(405)" severity="contrast"></button>
+<app-error-dialog></app-error-dialog>
+<app-error-toast></app-error-toast>
 <router-outlet></router-outlet>

@@ -1,0 +1,31 @@
+<p-dialog [(visible)]="dialogVisible" [closable]="true" [modal]="false" [dismissableMask]="false" [draggable]="false"
+    [resizable]="false" [baseZIndex]="9999" [styleClass]="'w-full max-w-28rem'" [contentStyleClass]="'p-0'"
+    [position]="'top'" [appendTo]="'body'" (onHide)="close()">
+    <!-- header -->
+    <ng-template #header>
+        <div class="flex align-items-start justify-content-between gap-3">
+            <i class="pi pi-times-circle text-red-500 text-xl mt-1"></i>
+            <div class="flex-1">
+                <div class="text-red-500 font-semibold text-lg">
+                    {{ errorData()?.header }} {{ errorData()?.code? '(' + errorData()?.code + ')' : ''}}
+                </div>
+                <div class="text-sm text-600 mt-2">
+                    {{ errorData()?.summary }}
+                </div>
+            </div>
+        </div>
+    </ng-template>
+    <!-- body -->
+    <div class="resolution" [class.expanded]="errorData()?.expanded">
+        <div class="steps text-sm px-4 text-700" [innerHTML]="errorData()?.resolutionSteps"></div>
+    </div>
+    <!-- footer -->
+    <ng-template #footer>
+        <div class="text-right">
+            <p-button [icon]="errorData()?.expanded ? 'pi pi-angle-up' : 'pi pi-angle-down'"
+                [label]="errorData()?.expanded ? 'Show less' : 'Show more'" [text]="true" severity="danger"
+                (click)="errorDialogService.toggleResolutionSteps()">
+            </p-button>
+        </div>
+    </ng-template>
+</p-dialog>

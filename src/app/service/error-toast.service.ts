@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MessageService } from 'primeng/api';
-import { ERROR_MESSAGES } from '../../assets/data/error';
+import { ERROR_MESSAGES, UNKNOWN_ERROR_MESSAGES } from '../../assets/data/error';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +10,7 @@ export class ErrorToastService {
   constructor(private messageService: MessageService) { }
 
   showError(code: number) {
-    const errorInfo = ERROR_MESSAGES[code] || {
-      summary: 'Unknown Error',
-      detail: 'An unexpected error occurred.',
-      resolution: 'Please contact support.'
-    };
+    const errorInfo = ERROR_MESSAGES[code] || UNKNOWN_ERROR_MESSAGES;
 
     this.messageService.add({
       key: 'errorToast',

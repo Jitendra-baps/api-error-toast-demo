@@ -1,13 +1,8 @@
-.toast-card {
-    width: 100%;
-    max-width: 400px; // PrimeFlex doesn't have fixed max-height animations
-}
-
 .resolution {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
-    transition: max-height 0.5s ease, opacity 0.5s ease;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
 .resolution.expanded {

@@ -132,3 +132,9 @@ export const ERROR_MESSAGES: Record<number, { code: number, header: string; summ
         "resolutionSteps": "<ol><li>Authenticate with the network (e.g., captive portal login).</li><li>Ensure proper network credentials are provided.</li><li>Check network access policies.</li></ol>"
     }
 }
+
+export const UNKNOWN_ERROR_MESSAGES: { header: string; summary: string; resolutionSteps: string } = {
+    header: 'Unknown Error',
+    summary: 'An unexpected error occurred.',
+    resolutionSteps: 'Please contact support.'
+}

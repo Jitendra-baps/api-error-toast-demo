@@ -1,0 +1,17 @@
+.resolution {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.resolution.expanded {
+    max-height: 300px;
+    opacity: 1;
+}
+
+.steps {
+    ol {
+        margin: 0 !important;
+    }
+}
